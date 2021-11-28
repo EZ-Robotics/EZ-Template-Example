@@ -49,7 +49,7 @@ Download the latest released [here](https://github.com/EZ-Robotics/EZ-Template-E
 
 > The robot also ramps up from a minimum speed to a maximum speed for X inches, that can be adjusted in `src/autons.cpp` in `default_constants()`.  Make sure to uncomment `default_constants` in `src/main.cpp` too!.
 
-> [Check out the tutorial on adding new autonomous routines here!](Adding-Autonomous-Routines.MD)
+> [Check out the tutorial on adding new autonomous routines here!](https://ez-robotics.github.io/EZ-Template/docs/Tutorials/autons.html)
 
 </details>
 
@@ -64,7 +64,7 @@ Download the latest released [here](https://github.com/EZ-Robotics/EZ-Template-E
 
 > The swing turns are `ez::LEFT_SWING` and `ez::RIGHT_SWING`, these functions turn using one side of the drive.
 
-> [Check out the tutorial on adding new autonomous routines here!](Adding-Autonomous-Routines.MD)
+> [Check out the tutorial on adding new autonomous routines here!](https://ez-robotics.github.io/EZ-Template/docs/Tutorials/autons.html)
 
 </details>
 
@@ -77,7 +77,7 @@ Download the latest released [here](https://github.com/EZ-Robotics/EZ-Template-E
 
 > While the robot is in disabled, you can select an autonomous routine by pressing the left/right buttons on the brain!  The page it's on when autonomous is enabled is the routine that will run.
 
-> [Check out the tutorial on adding new autonomous routines here!](Adding-Autonomous-Routines.MD)
+> [Check out the tutorial on adding new autonomous routines here!](https://ez-robotics.github.io/EZ-Template/docs/Tutorials/autons.html)
 
 </details>
 
@@ -91,7 +91,7 @@ Download the latest released [here](https://github.com/EZ-Robotics/EZ-Template-E
 6) To test the test autonomous modes, plug into a competition switch and select the autonomous mode on the brain screen by pressing the left and right buttons!  The current page will be the autonomous that runs.  For making new autonomous routines, check `src/autons.cpp` for examples on how to use the drive functions.
 
 ## Additing Autonomous Routines
-[Check out the tutorial on adding new autonomous routines here!](Adding-Autonomous-Routines.MD)
+[Check out the tutorial on adding new autonomous routines here!](https://ez-robotics.github.io/EZ-Template/docs/Tutorials/autons.html)
 
 ## License
 
