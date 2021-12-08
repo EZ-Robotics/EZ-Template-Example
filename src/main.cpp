@@ -6,18 +6,18 @@
 Drive chassis (
   // Left Chassis Ports (negative port will reverse it!)
   //   the first port is the sensored port (when trackers are not used!)
-  {1, 2}
+  {-11, -5, -7}
 
   // Right Chassis Ports (negative port will reverse it!)
   //   the first port is the sensored port (when trackers are not used!)
-  ,{-3, -4}
+  ,{3, 2, 17}
 
   // IMU Port
-  ,5
+  ,18
 
   // Wheel Diameter (Remember, 4" wheels are actually 4.125!)
   //    (or tracking wheel diameter)
-  ,4.125
+  ,3.25
 
   // Cartridge RPM
   //   (or tick per rotation if using tracking wheels)
@@ -34,7 +34,6 @@ Drive chassis (
   /*
   // Left Tracking Wheel Ports (negative port will reverse it!)
   ,{1, 2}
-
   // Right Tracking Wheel Ports (negative port will reverse it!)
   ,{3, 4}
   */
@@ -137,7 +136,7 @@ void competition_initialize() {
  * from where it left off.
  */
 void autonomous() {
-  chassis.reset_gyro(0); // Reset gyro position to 0
+  chassis.reset_gyro(); // Reset gyro position to 0
   chassis.reset_drive_sensor(); // Reset drive sensors to 0
   chassis.set_drive_brake(MOTOR_BRAKE_HOLD); // Set motors to hold.  This helps autonomous consistency. 
 
