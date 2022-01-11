@@ -38,10 +38,12 @@ Drive chassis (
   // Uncomment if using tracking wheels
   /*
   // Left Tracking Wheel Ports (negative port will reverse it!)
-  ,{1, 2}
+  // ,{1, 2} // 3 wire encoder
+  // ,8 // Rotation sensor
 
   // Right Tracking Wheel Ports (negative port will reverse it!)
-  ,{3, 4}
+  // ,{-3, -4} // 3 wire encoder
+  // ,-9 // Rotation sensor
   */
 
   // Uncomment if tracking wheels are plugged into a 3 wire expander
@@ -60,20 +62,20 @@ Drive chassis (
 void initialize() {
   // Print our branding over your terminal :D
   ez::print_ez_template();
-
+  
   pros::delay(500); // Stop the user from doing anything while legacy ports configure.
 
   // Configure your chassis controls
   chassis.toggle_modify_curve_with_controller(true); // Enables modifying the controller curve with buttons on the joysticks
   chassis.set_active_brake(0); // Sets the active brake kP. We recommend 0.1.
-  chassis.set_curve_default(0, 0); // Defaults for curve. (Comment this line out if you have an SD card!)
+  chassis.set_curve_default(0, 0); // Defaults for curve. If using tank, only the first parameter is used. (Comment this line out if you have an SD card!)  
   default_constants(); // Set the drive to your own constants from autons.cpp!
 
   // These are already defaulted to these buttons, but you can change the left/right curve buttons here!
-  // chassis.set_left_curve_buttons (pros::E_CONTROLLER_DIGITAL_LEFT, pros::E_CONTROLLER_DIGITAL_RIGHT);
+  // chassis.set_left_curve_buttons (pros::E_CONTROLLER_DIGITAL_LEFT, pros::E_CONTROLLER_DIGITAL_RIGHT); // If using tank, only the left side is used. 
   // chassis.set_right_curve_buttons(pros::E_CONTROLLER_DIGITAL_Y,    pros::E_CONTROLLER_DIGITAL_A);
 
-  // Autonomous Selector using LLEMMU
+  // Autonomous Selector using LLEMU
   ez::as::auton_selector.add_autons({
     Auton("Example Drive\n\nDrive forward and come back.", drive_example),
     Auton("Example Turn\n\nTurn 3 times.", turn_example),
@@ -129,11 +131,12 @@ void competition_initialize() {
  * from where it left off.
  */
 void autonomous() {
+  chassis.reset_pid_targets(); // Resets PID targets to 0
   chassis.reset_gyro(); // Reset gyro position to 0
   chassis.reset_drive_sensor(); // Reset drive sensors to 0
-  chassis.set_drive_brake(MOTOR_BRAKE_HOLD); // Set motors to hold.  This helps autonomous consistency. 
+  chassis.set_drive_brake(MOTOR_BRAKE_HOLD); // Set motors to hold.  This helps autonomous consistency.
 
-  ez::as::auton_selector.call_selected_auton(); // Calls selected auton from autonomous selector. 
+  ez::as::auton_selector.call_selected_auton(); // Calls selected auton from autonomous selector.
 }
 
 

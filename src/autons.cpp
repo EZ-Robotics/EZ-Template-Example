@@ -53,6 +53,17 @@ void two_mogo_constants() {
   chassis.set_pid_constants(&chassis.swingPID, 7, 0, 45, 0);
 }
 
+void exit_condition_defaults() {
+  chassis.set_exit_condition(chassis.turn_exit, 100, 3, 500, 7, 500, 500);
+  chassis.set_exit_condition(chassis.swing_exit, 100, 3, 500, 7, 500, 500);
+  chassis.set_exit_condition(chassis.drive_exit, 80, 50, 300, 150, 500, 500);
+}
+
+void modified_exit_condition() {
+  chassis.set_exit_condition(chassis.turn_exit, 100, 3, 500, 7, 500, 500);
+  chassis.set_exit_condition(chassis.swing_exit, 100, 3, 500, 7, 500, 500);
+  chassis.set_exit_condition(chassis.drive_exit, 80, 50, 300, 150, 500, 500);
+}
 
 
 
@@ -182,7 +193,7 @@ void combining_movements() {
   chassis.set_turn_pid(45, TURN_SPEED);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(ez::RIGHT_SWING, -45, TURN_SPEED);
+  chassis.set_swing_pid(ez::RIGHT_SWING, -45, TURN_SPEED);
   chassis.wait_drive();
 
   chassis.set_turn_pid(0, TURN_SPEED);
