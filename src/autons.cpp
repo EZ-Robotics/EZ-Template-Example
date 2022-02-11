@@ -209,17 +209,17 @@ void combining_movements() {
 // Interference example
 ///
 void tug (int attempts) {
+  chassis.set_max_speed(127);
   for (int i=0; i<attempts-1; i++) {
     // Attempt to drive backwards
-    printf("i - %i", i);
-    chassis.set_drive_pid(-12, 127);
+    chassis.set_drive_pid(-20, 127);
     chassis.wait_drive();
 
     // If failsafed...
     if (chassis.interfered) {
       chassis.reset_drive_sensor();
       chassis.set_drive_pid(-2, 20);
-      pros::delay(1000);
+      pros::delay(1500);
     }
     // If robot successfully drove back, return
     else {
