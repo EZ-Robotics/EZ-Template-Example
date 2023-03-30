@@ -2,4 +2,4 @@
 ### This is an example project for the EZ-Template library.  
 
 ## Docs
-[Read the docs here!](https://ez-robotics.github.io/EZ-Template/docs)
+[EZ-Template can be foud here](https://github.com/EZ-Robotics/EZ-Template)
